@@ -1,0 +1,120 @@
+<html>
+<head>
+  <title>Form Validator demo</title>
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #efeeea;
+    }
+    
+    #container {
+      padding: 80px;
+    }
+    
+    .error {
+      border: solid 1px red;
+    }
+    
+    .flash {
+      background-color: red;
+      color: #fff;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="container">
+    <form id="form-1" novalidate>
+      <div class="flash"></div>
+      <div class="row">
+        <div class="col col-6">
+          <input type="text" name="first_name" placeholder="First Name" required />
+        </div>
+        <div class="col col-6">
+          <input type="text" name="last_name" placeholder="Last Name" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-6">
+          <input type="email" name="email" placeholder="Email" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-12">
+          <input type="submit" value="Submit" />
+        </div>
+      </div>
+    </form>
+    <form id="form-2" novalidate>
+      <div class="flash"></div>
+      <div class="row">
+        <div class="col col-6">
+          <input type="text" name="first_name2" placeholder="First Name" required />
+        </div>
+        <div class="col col-6">
+          <input type="text" name="last_name2" placeholder="Last Name" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-6">
+          <input type="email" name="email2" placeholder="Email" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-12">
+          <input type="submit" value="Submit" />
+        </div>
+      </div>
+    </form>
+    
+    <form id="form-3" novalidate>
+      <div class="flash"></div>
+      <div class="row">
+        <div class="col col-6">
+          <input type="text" name="first_name2" placeholder="First Name" required />
+        </div>
+        <div class="col col-6">
+          <input type="text" name="last_name2" placeholder="Last Name" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-6">
+          <input type="email" name="email2" placeholder="Email" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-12">
+          <input type="submit" value="Submit" />
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="validate.js"></script>
+  
+  <script type="text/javascript">
+    console.log('Page loaded');
+    
+    form1 = new formValidator($('#form-1'), function(){
+      alert('Form 1 Success!')
+    });
+    
+    form2 = new formValidator($('#form-2'), function(){
+      alert('Form 2 Success!')
+    });
+    
+    form3 = new formValidator($('#form-3'), function(){
+      alert('Form 3 Success!')
+    });
+    
+  </script>
+</body>
+</html>
