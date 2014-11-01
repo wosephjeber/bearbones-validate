@@ -103,16 +103,18 @@
   <script type="text/javascript">
     console.log('Page loaded');
     
-    form1 = new formValidator($('#form-1'), function(){
-      alert('Form 1 Success!')
+    form1 = new formValidator($('#form-1'));
+    
+    form2 = new formValidator($('#form-2'), {
+      callback: function() {
+        alert('Form 2 Success!')
+      }
     });
     
-    form2 = new formValidator($('#form-2'), function(){
-      alert('Form 2 Success!')
-    });
-    
-    form3 = new formValidator($('#form-3'), function(){
-      alert('Form 3 Success!')
+    form3 = new formValidator($('#form-3'), {
+      callback: function() {
+        alert('Form 3 Success!')
+      }
     });
     
   </script>
