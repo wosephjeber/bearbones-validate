@@ -27,6 +27,10 @@
       color: #fff;
     }
     
+    .success {
+      border: solid 1px green;
+    }
+    
   </style>
 </head>
 <body>
@@ -121,7 +125,7 @@
     
     form2 = new formValidator($('#form-2'), {
       callback: function() {
-        alert('Form 2 Success!')
+        $(this).addClass('success');
       }
     });
     

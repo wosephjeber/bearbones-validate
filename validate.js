@@ -114,7 +114,7 @@ var formValidator = function(form, options) {
       var result = _this.validate();
       if (result.success) {
         _this.clearErrors();
-        _this.options.callback();
+        _this.options.callback.call(_this.form);
       } else {
         _this.displayErrors(result);
       }
