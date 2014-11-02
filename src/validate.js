@@ -10,9 +10,10 @@ var formValidator = function(form, options) {
   this.options = {
     callback: function() { _this.form.submit() },
     flashElement: $('.flash', _this.form),
+    showFlash: function() { $(this).slideDown(500).delay(3000).slideUp(500) },
     errorClass: 'error',
     errorMessageClass: 'error-message',
-    customValidations: []
+    customValidations: [],
   }
   
   // extend defaults with options argument
@@ -106,6 +107,8 @@ var formValidator = function(form, options) {
     })
     
     _this.options.flashElement.html(errorMessage.trim());
+    
+    _this.options.showFlash.call(_this.options.flashElement);
   }
   
   // set up submit handler on form
