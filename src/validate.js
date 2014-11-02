@@ -56,9 +56,9 @@ var formValidator = function(form, options) {
     
     // add custom validations
     $.each(_this.options.customValidations, function(index, validation) {
-      if (!validation.rule.call(validation.element)) {
+      if (!validation.rule.call(_this.form.find(validation.element))) {
         errorObj.errors.push({
-          element: validation.element,
+          element: _this.form.find(validation.element),
           message: validation.message
         })
         errorObj.messages.push(validation.flash)
