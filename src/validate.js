@@ -8,7 +8,7 @@ var formValidator = function(form, options) {
   
   // set defaults
   this.options = {
-    callback: function() { _this.form.submit() },
+    callback: function() { $(this).submit() },
     flashElement: $('.flash', _this.form),
     showFlash: function() { $(this).slideDown(500).delay(3000).slideUp(500) },
     errorClass: 'error',
