@@ -11,7 +11,8 @@ var formValidator = function(form, options) {
     callback: function() { _this.form.submit() },
     flashElement: $('.flash', _this.form),
     errorClass: 'error',
-    errorMessageClass: 'error-message'
+    errorMessageClass: 'error-message',
+    customValidations: []
   }
   
   // extend defaults with options argument
@@ -53,6 +54,17 @@ var formValidator = function(form, options) {
       }
     })
     
+    // add custom validations
+    $.each(_this.options.customValidations, function(index, validation) {
+      if (!validation.rule.call(validation.element)) {
+        errorObj.errors.push({
+          element: validation.element,
+          message: validation.message
+        })
+        errorObj.messages.push(validation.flash)
+      }
+    })
+
     // if there are errors
     if (errorObj.errors.length > 0) {
       errorObj.success = false;
