@@ -106,7 +106,12 @@ var formValidator = function(form, options) {
       errorMessage += message;
     })
     
-    _this.options.flashElement.html(errorMessage.trim());
+    _this.flash(errorMessage.trim());
+  }
+  
+  // display flash message
+  this.flash = function(message) {
+    _this.options.flashElement.html(message);
     
     _this.options.showFlash.call(_this.options.flashElement);
   }
