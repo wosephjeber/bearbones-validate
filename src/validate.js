@@ -10,7 +10,8 @@ var formValidator = function(form, options) {
   this.options = {
     callback: function() { $(this).submit() },
     flashElement: $('.flash', _this.form),
-    showFlash: function() { $(this).slideDown(500).delay(3000).slideUp(500) },
+    showFlash: function() { $(this).slideDown(500) },
+    showError: function(element, errorMessage) { $(errorMessage).slideDown(500) },
     errorClass: 'error',
     errorMessageClass: 'error-message',
     customValidations: [],
@@ -96,8 +97,10 @@ var formValidator = function(form, options) {
   this.displayErrors = function(errorObj) {
     _this.clearErrors();
     
-    $.each(errorObj.errors, function(index, error) {
-      $(error.element).addClass(_this.options.errorClass).after('<span class="' + _this.options.errorMessageClass + '">' + error.message + '</span>');
+    $.each(errorObj.errors, function(index, obj) {
+      var errorElement = $('<div class="' + _this.options.errorMessageClass + '">' + obj.message + '</div>');
+      $(obj.element).addClass(_this.options.errorClass).after(errorElement);
+      _this.options.showError.call(obj.element, obj.element, errorElement);
     })
     
     var errorMessage = '';
