@@ -60,9 +60,10 @@ var formValidator = function(form, options) {
     $.each(_this.options.customValidations, function(index, validation) {
       var validation = validation;
       $.each(validation.element, function(index, element) {
-        if (!validation.rule.call(_this.form.find(element))) {
+        var element = validation.localScope ? _this.form.find(element) : element;
+        if (!validation.rule.call(element)) {
           errorObj.errors.push({
-            element: _this.form.find(element),
+            element: element,
             message: validation.message
           })
           errorObj.messages.push(validation.flash);
