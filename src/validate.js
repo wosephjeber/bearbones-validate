@@ -8,13 +8,14 @@ var formValidator = function(form, options) {
   
   // set defaults
   this.options = {
-    callback: function() { $(this).submit() },
+    callback: function() { _this.processing(false); $(this).submit() },
     flashElement: $('.flash', _this.form),
+    submitButton: $('input[type="submit"]', _this.form),
     showFlash: function() { $(this).slideDown(500) },
     showError: function(element, errorMessage) { $(errorMessage).slideDown(500) },
     errorClass: 'error',
     errorMessageClass: 'error-message',
-    customValidations: [],
+    customValidations: []
   }
   
   // extend defaults with options argument
@@ -124,14 +125,26 @@ var formValidator = function(form, options) {
     _this.options.showFlash.call(_this.options.flashElement);
   }
   
+  this.processing = function(isProcessing) {
+    if (isProcessing) {
+      _this.options.submitButton.hide();
+      _this.options.submitButton.siblings('.processing-donation').show();
+    } else {
+      _this.options.submitButton.show();
+      _this.options.submitButton.siblings('.processing-donation').hide();
+    }
+  }
+  
   // set up submit handler on form
   this.setUpSubmitHandler = function() {
     _this.form.on('submit', function() {
+      _this.processing(true);
       var result = _this.validate();
       if (result.success) {
         _this.clearErrors();
         _this.options.callback.call(_this.form);
       } else {
+        _this.processing(false);
         _this.displayErrors(result);
       }
       return false;
