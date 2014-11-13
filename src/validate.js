@@ -61,16 +61,22 @@ var formValidator = function(form, options) {
     // add custom validations
     $.each(_this.options.customValidations, function(index, validation) {
       var validation = validation;
-      $.each(validation.element, function(index, element) {
-        var element = validation.localScope ? _this.form.find(element) : element;
-        if (!validation.rule.call(element)) {
-          errorObj.errors.push({
-            element: element,
-            message: validation.message
-          })
+      if (validation.element) {
+        $.each(validation.element, function(index, element) {
+          var element = validation.localScope ? _this.form.find(element) : element;
+          if (!validation.rule.call(element)) {
+            errorObj.errors.push({
+              element: element,
+              message: validation.message
+            })
+            errorObj.messages.push(validation.flash);
+          }
+        })
+      } else {
+        if (!validation.rule.call()) {
           errorObj.messages.push(validation.flash);
         }
-      })
+      }
     })
 
     // if there are errors
