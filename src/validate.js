@@ -49,6 +49,7 @@ var formValidator = function(form, options) {
       var placeholder = $(element).attr('placeholder');
       if ((val === '' || val === placeholder) && $(element).is(':visible')) {
         missingFields ++;
+        element = $(element).is('select') ? $(element).parents('.select') : element;
         errorObj.errors.push({
           element: element,
           message: 'Required field'
