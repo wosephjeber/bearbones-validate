@@ -61,6 +61,7 @@ var formValidator = function(form, options) {
     // add custom validations
     $.each(_this.options.customValidations, function(index, validation) {
       var validation = validation;
+      var errors = false;
       if (validation.element) {
         $.each(validation.element, function(index, element) {
           var element = validation.localScope ? _this.form.find(element) : element;
@@ -69,14 +70,15 @@ var formValidator = function(form, options) {
               element: element,
               message: validation.message
             })
-            errorObj.messages.push(validation.flash);
+            errors = true;
           }
         })
       } else {
         if (!validation.rule.call()) {
-          errorObj.messages.push(validation.flash);
+          errors = true;
         }
       }
+      if (errors) errorObj.messages.push(validation.flash);
     })
 
     // if there are errors
