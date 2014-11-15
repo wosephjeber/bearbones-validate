@@ -1,5 +1,5 @@
 /* Weavr v0.9.1 
- * Compiled 10-30-2014
+ * Compiled 11-14-2014
  * Copyright (c) 2014 Opportunity International 
  */
 
@@ -237,8 +237,8 @@ ul.inline li { display: inline-block; padding-left: 10px; padding-right: 10px; }
 /***************/
 /**** Forms ****/
 /***************/
-input[type='text'], input[type='number'], input[type='email'], input[type='password'], textarea { display: block; width: 100%; height: 46px; border: solid 1px #8f8e8c; padding: 10px; font-size: 14px; outline: none; transition: border-color .2s; -webkit-transition: border-color .2s; -moz-transition: border-color .2s; font-family: "proxima-nova", Arial, sans-serif; appearance: none; -webkit-appearance: none; -moz-appearance: none; border-radius: 0; box-shadow: none; }
-input[type='text']:focus, input[type='number']:focus, input[type='email']:focus, input[type='password']:focus, textarea:focus { border-color: #555; }
+input[type='text'], input[type='number'], input[type='email'], input[type='password'], input[type='phone'], textarea { display: block; width: 100%; height: 46px; border: solid 1px #8f8e8c; padding: 10px; font-size: 14px; outline: none; transition: border-color .2s; -webkit-transition: border-color .2s; -moz-transition: border-color .2s; font-family: "proxima-nova", Arial, sans-serif; appearance: none; -webkit-appearance: none; -moz-appearance: none; border-radius: 0; box-shadow: none; }
+input[type='text']:focus, input[type='number']:focus, input[type='email']:focus, input[type='password']:focus, input[type='phone']:focus, textarea:focus { border-color: #555; }
 
 input.inline { display: inline-block; }
 
@@ -343,8 +343,6 @@ select.select-placeholder { font-family: "Times New Roman", serif; font-style: i
 .btn.ghost.brand-purple:hover { color: #fff; background-color: #611171; }
 .btn.ghost.brand-green { color: #7bc557; border-color: #7bc557; }
 .btn.ghost.brand-green:hover { color: #fff; background-color: #7bc557; }
-
-a.btn { line-height: 46px; }
 
 /************************************/
 /**** Popover and Tooltip styles ****/
