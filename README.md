@@ -10,13 +10,13 @@ Form validations can be set up with: `variable = new formValidator(formObject, o
 For example, to set up client-side validations straight out of the box:
 
 ```javascript
-form1 = new formValidator($('#form-1'));
+form1 = new FormValidator($('#form-1'));
 ```
 
 You'll probably want some customizations, though. For example:
 
 ```javascript
-form1 = new formValidator($('#form-1'), {
+form1 = new FormValidator($('#form-1'), {
   flashElement: $('#flash'),
   errorMessageClass: 'field-error',
   callback: function() {

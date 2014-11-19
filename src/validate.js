@@ -1,4 +1,4 @@
-var formValidator = function(form, options) {
+var FormValidator = function(form, options) {
   
   // cache this
   var _this = this;

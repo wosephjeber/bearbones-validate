@@ -227,7 +227,7 @@
   <script type="text/javascript">
     console.log('Page loaded');
     
-    form1 = new formValidator($('#form-1'), {
+    form1 = new FormValidator($('#form-1'), {
       customValidations: [
         {
           element: $('.phone'),
@@ -240,7 +240,7 @@
       ]
     });
     
-    form2 = new formValidator($('#form-2'), {
+    form2 = new FormValidator($('#form-2'), {
       callback: function() {
         $(this).addClass('success');
       },
@@ -254,7 +254,7 @@
       ]
     });
     
-    form3 = new formValidator($('#form-3'), {
+    form3 = new FormValidator($('#form-3'), {
       flashElement: $('#flash'),
       showFlash: function() {
         $(this).slideDown(500).delay(4000).slideUp(500);
