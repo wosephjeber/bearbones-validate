@@ -25,6 +25,18 @@ form1 = new FormValidator($('#form-1'), {
 });
 ```
 
+Once you've instantiated the class, you can access it's public methods:
+
+```javascript
+// display a message in the flash element:
+form1.flash("Whoa, don't do that!");
+
+// The validate() method is automatically attached to the submit handler,
+// but you can trigger it manually. It returns an object with the results,
+// so you might want to store those in a variable.
+var result = form1.validate();
+```
+
 ##Options
 
 |Option|Type|Description|
