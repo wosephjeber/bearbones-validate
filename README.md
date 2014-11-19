@@ -3,6 +3,20 @@ form-validator
 
 An object-oriented Javascript form validator. Still in the works.
 
+##Usage
+
+Form validations can be set up with: `validator = new formValidator(formObject, options);` where `formObject` is a jQuery object and `options` is an object. More details on the options below.
+
+For example, to set up client-side validations:
+
+```javascript
+form1 = new formValidator($('#form-1'), {
+  callback: function() {
+    alert ('Form submitted successfully');
+  }
+});
+```
+
 ##FAQs
 
 **Q:** Why am I building a Javascript form validator when so many already exist?
