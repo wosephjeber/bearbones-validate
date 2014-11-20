@@ -25,7 +25,7 @@ form1 = new FormValidator($('#form-1'), {
 });
 ```
 
-Once you've instantiated the class, you can access it's public methods:
+Once you've instantiated the class, you can access its public methods:
 
 ```javascript
 // display a message in the flash element:
