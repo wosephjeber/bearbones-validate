@@ -1,7 +1,7 @@
 form-validator
 ==============
 
-An object-oriented Javascript form validator. Still in the works.
+An object-oriented Javascript form validator. Still in the works. Needs a better name.
 
 ##Usage
 
@@ -39,6 +39,8 @@ var result = form1.validate();
 
 ##Options
 
+All options are optional.
+
 |Option|Type|Description|
 |------|----|-----------|
 |callback|function| |
@@ -50,6 +52,16 @@ var result = form1.validate();
 |showError|function| |
 |showFlash|function| |
 
+The customValidations option allows you to specify custom fields and rules to validate. Out of the box, only required fields and email inputs are validated. The options for customValidation objects are:
+
+|Option|Type|Description|
+|------|----|-----------|
+|element|jQuery object|The field to validate. Optional.|
+|localScope|boolean|If `true`, will only validate fields if they are children of the form being validated. Defaults to `false`. Optional.|
+|rule|function|The validation rule that determines if the field passes or not. Must return a boolean. Required.|
+|message|string|The message that should appear with the input. Optional.|
+|flash|string|The message that should appear in the flash element. Optional.|
+
 *Documentation still in process*
 
 ##Methods
@@ -60,6 +72,24 @@ var result = form1.validate();
 |validateEmail(string)|Validates a string for valid email syntax. Returns boolean.|
 |processing(boolean)|Shows/hides the processing message. Returns nothing.|
 |flash(string)|Displays a message in the flash element. Returns nothing.|
+|clearErrors()|Clears error messages, both in the flash element and on each input. Returns nothing.|
+|displayErrors(obj)|Displays error messages in flash element and on each input. Expects the error object returned by the validate() method. Returns nothing.|
+
+The `validate()` method returns an object with the following data:
+
+```javascript
+{
+  success: boolean,
+  errors: [
+    {
+      element: DOM object,
+      message: string
+    },
+    ...
+  ],
+  messages: [string,...] 
+}
+````
 
 *Documentation still in process*
 
