@@ -240,7 +240,7 @@
       ]
     });
     
-    form2 = new FormValidator($('#form-2'), {
+    form2 = new FormValidator(document.querySelector('#form-2'), {
       callback: function() {
         $(this).addClass('success');
       },
