@@ -1,5 +1,10 @@
 var FormValidator = function(form, options) {
   
+  // private function to check and convert DOM object to jQuery object
+  objectivize = function(obj) {
+    return (obj instanceof jQuery) ? obj : $(obj);
+  }
+  
   // cache this
   var _this = this;
   
@@ -21,11 +26,6 @@ var FormValidator = function(form, options) {
   // extend defaults with options argument
   var options = options || {};
   $.extend(this.options, options);
-  
-  // check and convert DOM object to jQuery object
-  this.objectivize = function(obj) {
-    return (obj instanceof jQuery) ? obj : $(obj);
-  }
   
   // validate form
   this.validate = function() {
