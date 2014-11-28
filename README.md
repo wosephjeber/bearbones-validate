@@ -99,6 +99,6 @@ The `validate()` method returns an object with the following data:
 
 **A:** I wanted the challenge, and the other validation scripts I have seen are pretty large and do more than I need them to. I wanted to create a lightweight library to do exactly what I needed it to do.
 
-**Q:** Am I aware that I mispelled "barebones"?
+**Q:** Am I aware that I misspelled "barebones"?
 
 **A:** Yes, it was intentional. Object-oriented programming was first explained to me using bears, and I'm trying to make this validator library as minimal as possible to suit my needs.
