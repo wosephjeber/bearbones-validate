@@ -74,6 +74,7 @@ The customValidations option allows you to specify custom fields and rules to va
 |flash(string)|Displays a message in the flash element. Returns nothing.|
 |clearErrors()|Clears error messages, both in the flash element and on each input. Returns nothing.|
 |displayErrors(obj)|Displays error messages in flash element and on each input. Expects the error object returned by the validate() method. Returns nothing.|
+|displayFieldError(field, errorMessage)|Display error message on single field. Returns nothing|
 
 The `validate()` method returns an object with the following data:
 
