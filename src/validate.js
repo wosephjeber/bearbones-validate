@@ -117,9 +117,7 @@ var FormValidator = function(form, options) {
     _this.clearErrors();
     
     $.each(errorObj.errors, function(index, obj) {
-      var errorElement = $('<div class="' + _this.options.errorMessageClass + '">' + obj.message + '</div>');
-      $(obj.element).addClass(_this.options.errorClass).after(errorElement);
-      _this.options.showError.call(obj.element, obj.element, errorElement);
+      _this.displayFieldError(obj.element, obj.message);
     })
     
     var errorMessage = '';
@@ -136,6 +134,13 @@ var FormValidator = function(form, options) {
     _this.options.flashElement.html(message);
     
     _this.options.showFlash.call(_this.options.flashElement);
+  }
+  
+  this.displayFieldError = function(field, errorMessage) {
+    var errorElement = $('<div class="' + _this.options.errorMessageClass + '">' + errorMessage + '</div>');
+    $field = _this.objectivize(field);
+    $field.addClass(_this.options.errorClass).after(errorElement);
+    _this.options.showError.call(errorMessage, errorMessage, errorElement);
   }
   
   this.processing = function(isProcessing) {
