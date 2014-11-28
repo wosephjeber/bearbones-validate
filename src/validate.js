@@ -22,6 +22,11 @@ var FormValidator = function(form, options) {
   var options = options || {};
   $.extend(this.options, options);
   
+  // check and convert DOM object to jQuery object
+  this.objectivize = function(obj) {
+    return (obj instanceof jQuery) ? obj : $(obj);
+  }
+  
   // validate form
   this.validate = function() {
     var form = _this.form;
