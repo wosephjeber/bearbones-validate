@@ -9,7 +9,7 @@ var FormValidator = function(form, options) {
   var _this = this;
   
   // set some variables
-  this.form = form;
+  this.form = objectivize(form);
   
   // set defaults
   this.options = {
@@ -138,7 +138,7 @@ var FormValidator = function(form, options) {
   
   this.displayFieldError = function(field, errorMessage) {
     var errorElement = $('<div class="' + _this.options.errorMessageClass + '">' + errorMessage + '</div>');
-    $field = _this.objectivize(field);
+    $field = objectivize(field);
     $field.addClass(_this.options.errorClass).after(errorElement);
     _this.options.showError.call(errorMessage, errorMessage, errorElement);
   }
