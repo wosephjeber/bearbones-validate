@@ -117,8 +117,10 @@ var FormValidator = function(form, options) {
     _this.clearErrors();
     
     $.each(errorObj.errors, function(index, obj) {
-      _this.displayFieldError(obj.element, obj.message);
-    })
+      if (objectivize(obj.element).attr('type') !== 'hidden') {
+        _this.displayFieldError(obj.element, obj.message);
+      }
+    });
     
     var errorMessage = '';
     
